@@ -1,4 +1,4 @@
-var calculatorType = prompt("Which type of calculator would you like to use? ('b' for basic, 'a' for advanced).");
+var calculatorType = prompt("Which type of calculator would you like to use? ('b' for basic, 'a' for advanced, 'x' for BMI).");
 
 if (calculatorType == "b") {
   var numberOne = prompt("Enter the number you would like to perform an operation on.");
@@ -29,5 +29,15 @@ if (calculatorType == "b") {
     var numberTwo = prompt("Enter the exponent");
     answer = Math.pow(numberOne, numberTwo);
     alert(answer);
+  } else if (powerOrRoot == "r") {
+    var numberOne = prompt("Enter the value you want the square root of:");
+    answer = Math.sqrt(numberOne);
+    alert(answer);
+  } else {
+    alert("Error: Incorrect Input!");
   }
+} else if (calculatorType == "x") {
+  var height = prompt("Enter your height in metres");
+  var weight = prompt("Enter your weight in kilograms");
+  
 }
