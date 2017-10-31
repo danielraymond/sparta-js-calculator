@@ -1,37 +1,71 @@
 var calculatorType = prompt("Which type of calculator would you like to use? ('b' for basic, 'a' for advanced, 'x' for BMI, 't' for trip calculator).");
 
-if (calculatorType == "b") {
+// CALCULATOR BASIC
+
+
+
+
+function calculatorBasic() {
   var numberOne = prompt("Enter the number you would like to perform an operation on.");
   var operator = prompt("Enter the operator you would like to use (+, -, *, /)");
-  if (operator == "+") {
-    var numberTwo = prompt("Enter the number you would like the operator to use.")
-    var answer = parseFloat(numberOne) + parseFloat(numberTwo);
-    var message = "The answer is " + answer;
-    alert(message);
-  } else if (operator == "-") {
-    var numberTwo = prompt("Enter the number you would like the operator to use.")
-    var answer = parseFloat(numberOne) - parseFloat(numberTwo);
-    var message = "The answer is " + answer;
-    alert(message);
-  } else if (operator == "*") {
-    var numberTwo = prompt("Enter the number you would like the operator to use.")
-    var answer = parseFloat(numberOne) * parseFloat(numberTwo);
-    var message = "The answer is " + answer;
-    alert(message);
-  } else if (operator == "/") {
-    var numberTwo = prompt("Enter the number you would like the operator to use.")
-    var answer = parseFloat(numberOne) / parseFloat(numberTwo);
-    var message = "The answer is " + answer;
-    alert(message);
-  } else {
-    alert("Error: Incorrect Input!");
+  var numberTwo = prompt("Enter the number you would like the operator to use.")
+
+  function addition(numberOne, numberTwo) {
+      var answer = parseFloat(numberOne) + parseFloat(numberTwo);
+      alert(numberOne + "+" + numberTwo + "=" + answer);
   }
-} else if (calculatorType == "a") {
+
+  function subtraction(numberOne, numberTwo) {
+      var answer = parseFloat(numberOne) - parseFloat(numberTwo);
+      alert(numberOne + "-" + numberTwo + "=" + answer);
+  }
+
+  function multiplication(numberOne, numberTwo) {
+      var answer = parseFloat(numberOne) * parseFloat(numberTwo);
+      alert(numberOne + "*" + numberTwo + "=" + answer);
+  }
+
+  function division(numberOne, numberTwo) {
+      var answer = parseFloat(numberOne) / parseFloat(numberTwo);
+      alert(numberOne + "/" + numberTwo + "=" + answer);
+  }
+
+  if (operator == "+") {
+    addition(numberOne, numberTwo);
+  } else if (operator == "-") {
+    subtraction(numberOne, numberTwo);
+  } else if (operator == "*") {
+    multiplication(numberOne, numberTwo);
+  } else if (operator == "/") {
+    division(numberOne, numberTwo);
+  } else {
+    alert("Error!")
+  }
+}
+
+if (calculatorType === "b") {
+  calculatorBasic();
+} else if (calculatorType === "a") {
+  calculatorAdvanced();
+}
+
+
+
+
+
+
+
+
+
+// CALCULATOR ADVANCED
+
+
+else if (calculatorType == "a") {
   var powerOrRoot = prompt("Which operation would you like to do?('r' for square root, 'p' for power, 'e' for exponential function)")
   if (powerOrRoot == "p") {
     var numberOne = prompt("Enter the base number");
     var numberTwo = prompt("Enter the exponent");
-    answer = Math.pow(numberOne, numberTwo);
+    var answer = Math.pow(numberOne, numberTwo);
     var message = "The answer is " + answer;
     alert(message);
   } else if (powerOrRoot == "r") {
@@ -41,27 +75,33 @@ if (calculatorType == "b") {
     alert(message);
   } else if (powerOrRoot == "e") {
     var numberOne = prompt("Enter the exponent");
-    answer = Math.exp(numberOne);
+    var answer = Math.exp(numberOne);
     var message = "The answer is " + answer;
     alert(message);
   } else {
     alert("Error: Incorrect Input!");
   }
-} else if (calculatorType == "x") {
+}
+// CALCULATOR BMI
+
+ else if (calculatorType == "x") {
   var system = prompt("Imperial or Metric measurement system? ('i' or 'm')")
   if (system == "m") {
     var height = prompt("Enter your height in metres");
     var weight = prompt("Enter your weight in kilograms");
-    answer = (weight / height) / height;
+    var answer = (weight / height) / height;
     var message = "The answer is " + answer;
     alert(message);
   } else if (system == "i") {
     var height = prompt("Enter your height in inches");
     var weight = prompt("Enter your weight in pounds");
-    answer = (weight * 703) / (height * height);
+    var answer = (weight * 703) / (height * height);
     var message = "The answer is " + answer;
     alert(message);
   }
+
+// CALCULATOR TRAVEL
+
 } else if (calculatorType == "t") {
   var distance = prompt("How far do you have to travel? (miles)");
   var speed = prompt("What is the average speed of the journey (mph)");
